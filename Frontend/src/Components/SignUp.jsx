@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
@@ -12,7 +13,20 @@ function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+
+
+  const onSubmit = async (data)=>{
+    try {
+      console.log(data);
+      const res = await axios.post("http://localhost:5000/user/signup" , data)
+      console.log(res);
+      if(res){
+        alert("user created successfully")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="flex items-center justify-center h-screen w-full">
@@ -36,10 +50,23 @@ function SignUp() {
               placeholder="Enter your fullname"
               id="name"
               className="w-full px-3 py-2 rounded-md outline-none mt-3"
-              {...register("name", { required: true })}
+              {...register("fullName", { required: true })}
             />
              <br />
-             {errors.name && <span className="text-xs text-red-500">This field is required</span>}
+             {errors.fullName && <span className="text-xs text-red-500">This field is required</span>}
+          </div>
+          <div className="mt-3">
+            <label htmlFor="name">Username</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter your username"
+              id="name"
+              className="w-full px-3 py-2 rounded-md outline-none mt-3"
+              {...register("username", { required: true })}
+            />
+             <br />
+             {errors.username && <span className="text-xs text-red-500">This field is required</span>}
           </div>
           <div className="mt-3">
             <label htmlFor="email">Email</label>

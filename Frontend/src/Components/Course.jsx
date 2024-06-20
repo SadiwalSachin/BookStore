@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState , useEffect } from "react";
 import Cards from "./Cards"
-import list from "./../../public/list.json"
+import axios from "axios"
 import {Link} from "react-router-dom"
 
 function Course() {
+
+  const [bookData , setBookData] = useState([])
+  
+  useEffect(()=>{
+    ( async ()=>{
+      try {
+        console.log("Api started");
+       const res = await axios.get("http://localhost:5000/book")
+       console.log("data not coming");
+       console.log(res.data);
+       setBookData(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+    })()
+    // getBookData()
+  },[])
+
   return (
     <>
       <div className="max-w-screen-2xl min-h-screen container px-4 mx-auto md:px-10">
@@ -22,7 +40,7 @@ function Course() {
         </div>
         <div className="flex flex-wrap  justify-center items-center mt-10 ">
           {
-            list.map((data,index)=><Cards data={data}/>)
+            bookData.map((data,index)=><Cards data={data}/>)
           }
         </div>
       </div>
