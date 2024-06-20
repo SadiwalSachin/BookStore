@@ -19,10 +19,12 @@ function SignUp() {
     try {
       console.log(data);
       const res = await axios.post("http://localhost:5000/user/signup" , data)
-      console.log(res);
+      console.log(res.data);
       if(res){
         alert("user created successfully")
+        document.getElementById("my_modal_3").close()
       }
+      localStorage.setItem("Users",JSON.stringify(res.data))
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function Login() {
   const {
@@ -9,7 +10,29 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  // const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data)=>{
+    try {
+      const res = await axios.post("http://localhost:5000/user/login" , data)
+      console.log(res.data);
+      if(res){
+        setTimeout(()=>{
+          // alert("user logined successfully")
+          document.getElementById("my_modal_3").close()
+          localStorage.setItem("Users",JSON.stringify(res.data))
+          window.location.reload()
+        },2000)
+        
+      }
+    } catch (error) {
+      setTimeout(()=>{
+        alert("Invalid credentials")
+        document.getElementById("my_modal_3").close()
+      },2000)
+    }
+  }
+
 
   return (
     <div>
@@ -25,7 +48,7 @@ function Login() {
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <Link 
-              onClick={()=>console.log("cross btn clicked")}
+              onClick={()=> document.getElementById("my_modal_3").close()}
               to="/"
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
             >

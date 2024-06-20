@@ -25,7 +25,13 @@ const registerUser = asyncHandler( async (req , res) =>{
         password
     })
 
-    res.status(200).json(user).send("user created successfully").redirect("/")
+    const responseUser = await User.findById(user._id).select("-password")
+
+    if(!responseUser){
+        console.log("something went wrong");
+    }
+
+    res.status(200).json(responseUser)
 
 } )
 
@@ -38,20 +44,26 @@ const loginUser = asyncHandler( async (req ,res) =>{
     }
 
     const findedUser  = await User.findOne({email})
-    console.log(findedUser);
+    console.log("this is finded user",findedUser);
     
     if(!findedUser){
         console.log("user does not exist with this username");
     }
     console.log(password);
 
-    const isPasswordValid =  await findedUser.isPasswordCorrect(password)
-
-    if(!isPasswordValid){
-        console.log("wrong password entred");
+    if(password==findedUser.password){
+        console.log("password is correct");
     }
 
-    res.send("user logged in successflly")
+    const responseUser = await User.findById(findedUser._id).select("-password")
+
+    // const isPasswordValid = await findedUser.isPasswordCorrect(password)
+
+    // if(!isPasswordValid){
+    //     console.log("wrong password entred");
+    // }
+
+    res.json(responseUser)
 
 } )
 

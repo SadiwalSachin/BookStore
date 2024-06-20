@@ -11,6 +11,8 @@ app.use(cors({
     credentials:true
 }))
 
+
+// frontend se data aayega to uski ye configuration hai 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
@@ -21,7 +23,7 @@ import bookRouter from "./routes/book.route.js"
 app.use("/book",bookRouter)
 
 // routes for user
-import userRouter from "./routes/user.routes.js"
+import userRouter from "./routes/user.route.js"
 
 app.use("/user",userRouter)
 

@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
+import { useAuth } from "../Context/AuthProvider";
+import LogOut from "./LogOut";
 
 function Navbar() {
+  const [authUser, setAuthUser] = useAuth();
+  console.log("Navbar",authUser);
+  
 
-  const [theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("theme"):"light")
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
 
-  const [sticky,setSticky] = useState(false)
+  const [sticky, setSticky] = useState(false);
 
-  useEffect(()=>{
-    const handleScroll = () =>{
-      if(window.scrollY>0){
-        setSticky(true)
-      } else{
-        setSticky(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll",handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-
-    return () =>{
-      window.removeEventListener("scroll",handleScroll)
-    }
-
-  },[])
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <div className={`max-w-screen-2xl z-50 container ${sticky ? "bg-base-200" : "bg-base-100"} px-4 mx-auto md:px-10 fixed top-0 left-0`}>
+      <div
+        className={`max-w-screen-2xl z-50 container ${
+          sticky ? "bg-base-200" : "bg-base-100"
+        } px-4 mx-auto md:px-10 fixed top-0 left-0`}
+      >
         <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
@@ -90,7 +99,11 @@ function Navbar() {
             </div>
             <div className="hidden md:block">
               <label className="border px-3 rounded-md py-1 flex items-center gap-2">
-                <input type="text" className="grow outline-none bg-transparent " placeholder="Search" />
+                <input
+                  type="text"
+                  className="grow outline-none bg-transparent "
+                  placeholder="Search"
+                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -134,8 +147,17 @@ function Navbar() {
               </label>
             </div>
             <div className="">
-              <a onClick={()=>document.getElementById("my_modal_3").showModal()} className="btn px-5 bg-slate-600">Login</a>
-              <Login/>
+              {
+                authUser ? <LogOut/>:               <a
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
+                className="btn px-5 bg-slate-600"
+              >
+                Login
+              </a>
+              }
+              <Login />
             </div>
           </div>
         </div>
