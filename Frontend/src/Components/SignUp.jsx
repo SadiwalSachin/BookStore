@@ -14,7 +14,7 @@ function SignUp() {
   const onSubmit = async (data) => {
     try {
       console.log(data);
-      const res = await axios.post("https://book-store-fullstack-working.vercel.app/signup", data);
+      const res = await axios.post("https://book-store-fullstackworking-sachin-sadiwals-projects.vercel.app//signup", data);
       console.log(res.data);
       if (res) {
         setTimeout(() => {
