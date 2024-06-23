@@ -88,7 +88,7 @@ function Login() {
               <p>
                 Not Registered?{" "}
                 <span className="text-blue-500 underline">
-                  <a href="/signup">SignUp</a>
+                  <a href="https://book-store-fullstack-working.vercel.app/signup">SignUp</a>
                 </span>
               </p>
             </div>
