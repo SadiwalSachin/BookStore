@@ -14,7 +14,7 @@ function Login() {
 
   const onSubmit = async (data)=>{
     try {
-      const res = await axios.post("https://book-store-fullstackworking-sachin-sadiwals-projects.vercel.app//login" , data)
+      const res = await axios.post("https://book-store-fullstackworking-sachin-sadiwals-projects.vercel.app/login" , data)
       console.log(res.data);
       if(res){
         setTimeout(()=>{
@@ -88,7 +88,7 @@ function Login() {
               <p>
                 Not Registered?{" "}
                 <span className="text-blue-500 underline">
-                  <Link to="/">SignUp</Link>
+                  <Link to="/signup">SignUp</Link>
                 </span>
               </p>
             </div>
