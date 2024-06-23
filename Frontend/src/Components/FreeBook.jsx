@@ -15,7 +15,7 @@ function FreeBook() {
     ( async ()=>{
       try {
         console.log("Api started");
-       const res = await axios.get("http://localhost:5000/book")
+       const res = await axios.get("https://book-store-fullstackworking-sachin-sadiwals-projects.vercel.app/book")
        console.log("data not coming");
        console.log("freebook page par data aa raha hai ",res.data);
        setBookData(res.data)
