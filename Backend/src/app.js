@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended:true}))
 // routes for book
 import bookRouter from "./routes/book.route.js"
 
-app.use("/book",bookRouter)
+app.use("https://book-store-fullstackworking-sachin-sadiwals-projects.vercel.app/",bookRouter)
 
 // routes for user
 import userRouter from "./routes/user.route.js"
