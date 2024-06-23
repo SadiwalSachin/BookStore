@@ -19,7 +19,7 @@ dbConnection()
     })
 
 
-    app.listen(PORT,()=>{
+    app.listen("https://book-store-fullstackworking-ljidmtt2v-sachin-sadiwals-projects.vercel.app/",()=>{
         console.log("Server is running on port" , PORT);
     })
 
