@@ -11,7 +11,7 @@ function Course() {
     ( async ()=>{
       try {
         console.log("Api started");
-       const res = await axios.get("https://book-store-fullstackworking-sachin-sadiwals-projects.vercel.app//book")
+       const res = await axios.get("https://book-store-fullstackworking-csbwzzrr3-sachin-sadiwals-projects.vercel.app/book")
        console.log("data not coming");
        console.log(res.data);
        setBookData(res.data)
