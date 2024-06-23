@@ -25,7 +25,7 @@ app.use("/book",bookRouter)
 // routes for user
 import userRouter from "./routes/user.route.js"
 
-app.use("/user",userRouter)
+app.use("https://book-store-fullstack-working.vercel.app/",userRouter)
 
 
 export {app}
