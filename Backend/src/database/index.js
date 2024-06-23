@@ -1,7 +1,4 @@
 import mongoose from "mongoose"
-import { DB_NAME } from "../constant.js"
-
-const DATABASE_URL = process.env.DB_URL
 
 const dbConnection = async ()=>{
     try {
