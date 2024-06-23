@@ -7,7 +7,7 @@ const app = express()
 
 
 app.use(cors({
-    origin:"*",
+    origin:"https://book-store-fullstack-working.vercel.app/",
     credentials:true
 }))
 
