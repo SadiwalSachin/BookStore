@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import { useAuth } from "../Context/AuthProvider";
 import LogOut from "./LogOut";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [authUser, setAuthUser] = useAuth();
@@ -71,10 +72,10 @@ function Navbar() {
                   <a href="/course">Course</a>
                 </li>
                 <li>
-                  <a>Contact</a>
+                <a href="/contact">Contact</a>
                 </li>
                 <li>
-                  <a>About</a>
+                  <a href="/about">About</a>
                 </li>
               </ul>
             </div>
@@ -84,16 +85,16 @@ function Navbar() {
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
                 <li>
-                  <a href="/">Home</a>
+                  <NavLink to="/" >Home</NavLink>
                 </li>
                 <li>
-                  <a href="/course">Course</a>
+                  <NavLink to="/course" >Books</NavLink>
                 </li>
                 <li>
-                  <a>Contact</a>
+                  <NavLink to="/contact">Contact</NavLink>
                 </li>
                 <li>
-                  <a>About</a>
+                  <NavLink to="/about">About</NavLink>
                 </li>
               </ul>
             </div>
@@ -148,7 +149,7 @@ function Navbar() {
             </div>
             <div className="">
               {
-                authUser ? <LogOut/>:               <a
+                authUser ? <LogOut/>: <a
                 onClick={() =>
                   document.getElementById("my_modal_3").showModal()
                 }

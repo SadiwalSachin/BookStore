@@ -56,12 +56,7 @@ const loginUser = asyncHandler( async (req ,res) =>{
     }
 
     const responseUser = await User.findById(findedUser._id).select("-password")
-
-    // const isPasswordValid = await findedUser.isPasswordCorrect(password)
-
-    // if(!isPasswordValid){
-    //     console.log("wrong password entred");
-    // }
+    
 
     res.json(responseUser)
 

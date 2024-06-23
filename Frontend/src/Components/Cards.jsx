@@ -7,8 +7,8 @@ function Cards({ data }) {
         <div className="card w-80 md:w-96 bg-base-100 shadow-xl ">
           <figure>
             <img
-              className="object-cover object-center"
-              src={data.imageUrl}
+              className="object-cover object-center w-full h-[50vh] "
+              src={data.image}
               alt="Shoes"
             />
           </figure>

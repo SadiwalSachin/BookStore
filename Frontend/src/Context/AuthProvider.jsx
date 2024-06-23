@@ -19,3 +19,17 @@ export default function AuthProvider({children}){
 }
 
 export const useAuth =()=>useContext(AuthContext);
+
+// import React, { createContext } from 'react'
+
+// export const AuthContext = createContext()// ab context ban gya hai createContext ki madad se or context ka name hai AuthContext
+
+// const AuthProvider = ({children}) => {
+//   return (
+//     <AuthContext.Provider value={databhenunga}>
+//       {children}
+//     </AuthContext.Provider>
+//   )
+// }
+
+// export default AuthProvider

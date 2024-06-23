@@ -19,9 +19,9 @@ const LogOut = () => {
     }
 
   return (
-    <div>
-        <button onClick={handleLogOut} className='px-4 py-1 rounded-md bg-orange-500'>Log Out</button>
-    </div>
+    <>
+        <button onClick={handleLogOut} className=' md:w-[6vw] px-2 py-1 text-white rounded-md bg-orange-500'>Log Out</button>
+    </>
   )
 }
 

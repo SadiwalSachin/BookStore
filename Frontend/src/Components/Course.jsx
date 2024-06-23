@@ -30,9 +30,7 @@ function Course() {
             We're delighated to have you here! :
           </h1>
           <p className="mt-12 text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus adipisci, doloribus quo assumenda provident dolor
-            alias enim fuga iusto eligendi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium facilis incidunt ratione consequatur laudantium eligendi architecto velit officia nemo mollitia! Iure, reprehenderit dolore.
+           
           </p>
           <Link to="/">
           <button className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 duration-300 mt-6">Back</button>

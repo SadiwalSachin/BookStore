@@ -5,7 +5,7 @@ const DATABASE_URL = process.env.DB_URL
 
 const dbConnection = async ()=>{
     try {
-       const connectionInstance =  await mongoose.connect(`mongodb://localhost:27017/${DB_NAME}`)
+       const connectionInstance =  await mongoose.connect(`mongodb+srv://sachinaiuser:sachin.08082005@bookstore.pw5inoo.mongodb.net/`)
        console.log("MONGODB CONNECTION SUCCESSFULLY ::: ");
 
     } catch (error) {

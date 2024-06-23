@@ -26,7 +26,7 @@ function FreeBook() {
     // getBookData()
   },[])
 
-  const filteredData = bookData.filter((data) => data.Category === "free");
+  const filteredData = bookData.filter((data) => data.category === "free");
 
 
   var settings = {
