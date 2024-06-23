@@ -7,6 +7,7 @@ const app = express()
 
 app.use(cors({
     origin:"https://book-store-fullstack-working.vercel.app/",
+    method:['GET','POST'],
     credentials:true
 }))
 
