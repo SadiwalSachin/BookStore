@@ -5,7 +5,6 @@ import cors from "cors"
 
 const app = express()
 
-
 app.use(cors({
     origin:"https://book-store-fullstack-working.vercel.app/",
     credentials:true
